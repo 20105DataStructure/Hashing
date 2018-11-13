@@ -3,6 +3,10 @@ using namespace std;
 #define HASH_H
 class hash {
 public:
-	int Hash(int tconst)
+	static const int Hash[9999];
+public:
+	void insertDataset(string txt);
+	void deleteDataset();
+	void searchingDataset();
 };
 #endif

@@ -5,7 +5,7 @@ class hash {
 public:
 	static const int Hash[9999];
 public:
-	void insertDataset(string txt);
+	void insertDataset(string txt_);
 	void deleteDataset();
 	void searchingDataset();
 };

@@ -7,15 +7,9 @@ using namespace std;
 #define HASH_H
 class Hash {
 private:
-	static const int tablesize=19999;
+	static const int tablesize=199999;
 
 	struct dataset {
-		string tconst;
-		string titleType;
-		string peimaryTitle;
-		int startYear;
-		int runtimeMinutes;
-		string* genres;
 		DatasetNode* next;
 	};
 	dataset* hash[tablesize];

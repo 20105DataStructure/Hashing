@@ -90,7 +90,7 @@ void Hash::insertDataset(string txt_) {
 		if (n > 0) {
 			key += 100000;
 		}
-		//past the dataset to another funtion to insert dataset into the hash table
+		//past the  dataset to another funtion to insert dataset into the hash table
 		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres,key);
 		//end here
 		cout << endl;

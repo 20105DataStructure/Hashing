@@ -87,7 +87,9 @@ void Hash::insertDataset(string txt_) {
 		key_tconst = tconst[8] - '0';
 		key += (key_tconst % 10 * 10000);
 		//genres(6th key)
-
+		if (n > 0) {
+			key += 100000;
+		}
 		//past the dataset to another funtion to insert dataset into the hash table
 		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres,key);
 		//end here

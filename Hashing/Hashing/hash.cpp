@@ -5,9 +5,23 @@
 using namespace std;
 
 Hash::Hash() {
+	for (int i = 0; i < tablesize; i++) {
+		hash[i] = new dataset;
+		hash[i]->tconst="empty";
+		hash[i]->titleType="empty";
+		hash[i]->peimaryTitle="empty";
+		hash[i]->startYear=NULL;
+		hash[i]->runtimeMinutes="empty";
+		hash[i]->genres=NULL;
+		hash[i]->next = NULL;
 
+	}
 }
 Hash::~Hash() {
+
+}
+
+void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres) {
 
 }
 void Hash::insertDataset(string txt_) {
@@ -73,7 +87,7 @@ void Hash::insertDataset(string txt_) {
 		key += (key_tconst % 10 * 10000);
 		//genres(6th key)
 
-	
+		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres);
 		//end here
 		cout << endl;
 		if (file.eof())

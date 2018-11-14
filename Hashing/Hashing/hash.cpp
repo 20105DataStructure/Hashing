@@ -102,5 +102,88 @@ void Hash::deleteDataset() {
 
 }
 void Hash::searchingDataset() {
+	bool code = false;
+	bool type = false;
+	bool title = false;
+	bool year = false;
+	bool runtime = false;
+	bool genres = false;
+	char c, t, T, y, r, g;
+	string dcode, dtype, dtitle, dgenres, druntime;
+	int dyear = 0;
+	int pcode = 0, ptype = 0, ptitle = 0, pgenres = 0, pruntime = 0, pyear = 0;
+	int i = 0;
 
+
+	cout << "Please enter the source(s) you can provide" << endl;
+	cout << "code	type	title	year	runtime		genres" << endl;
+	cout << "type t represent you can give the soure and f represent can't respectively" << endl;
+	cin >> c;
+	cin >> t;
+	cin >> T;
+	cin >> y;
+	cin >> r;
+	cin >> g;
+	cout << "plese enter the data" << endl;
+	if (c == 't')
+	{
+		code = true;
+		cout << "code: " << endl;
+		cin >> dcode;
+		pcode += dcode[8];
+		i += pcode;
+	}
+	if (t == 't')
+	{
+		type = true;
+		cout << "type: " << endl;
+		cin >> dtype;
+		ptype += int(dtype[0]) % 10;
+		i += ptype * 10;
+	}
+	if (T == 't')
+	{
+		title = true;
+		cout << "title: " << endl;
+		cin >> dtitle;
+		ptitle += int(dtitle[0]) % 10;
+		i += title * 100;
+	}
+	if (y == 't')
+	{
+		year = true;
+		cout << "year: " << endl;
+		cin >> dyear;
+		pyear += dyear % 10;
+		i += pyear * 1000;
+	}
+	if (r == 't')
+	{
+		runtime = true;
+		cout << "runtime (/N) represent no runtime: " << endl;
+		cin >> druntime;
+		if (druntime[1] == 'N')
+			pruntime += 0;
+		else
+		{
+			pruntime = std::stoi(druntime);
+			pruntime += (pruntime % 10);
+		}
+		i += pruntime * 10000;
+	}
+	if (g == 't')
+	{
+		genres = true;
+		cout << "genres (/N) represent no genres: " << endl;
+		cin >> dgenres;
+		if (dgenres[1] == 'N')
+			pgenres += 0;
+		else
+			pgenres += 1;
+		i += pgenres * 100000;
+	}
+	for (; i < 199999;)
+	{
+
+	}
 }

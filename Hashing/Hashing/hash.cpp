@@ -11,7 +11,7 @@ Hash::Hash() {
 		hash[i]->titleType="empty";
 		hash[i]->peimaryTitle="empty";
 		hash[i]->startYear=NULL;
-		hash[i]->runtimeMinutes="empty";
+		hash[i]->runtimeMinutes=NULL;
 		hash[i]->genres=NULL;
 		hash[i]->next = NULL;
 
@@ -21,9 +21,26 @@ Hash::~Hash() {
 
 }
 
-void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres) {
+void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres,int index) {
+	int index_ = index;
 
+	if (hash[index_]->tconst == "empty")
+	{
+		hash[index_]->tconst = tconst;
+		hash[index_]->titleType = Type;
+		hash[index_]->peimaryTitle = title;
+		hash[index_]->startYear = YYYY;
+		hash[index_]->runtimeMinutes = runtime;
+		hash[index_]->genres = genres;
+	}
+	else if (hash[index_]->next != NULL) {
+
+	}
+	else {
+
+	}
 }
+
 void Hash::insertDataset(string txt_) {
 	string tconst;
 	string titleType;
@@ -87,7 +104,8 @@ void Hash::insertDataset(string txt_) {
 		key += (key_tconst % 10 * 10000);
 		//genres(6th key)
 
-		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres);
+		//past the dataset to another funtion to insert dataset into the hash table
+		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres,key);
 		//end here
 		cout << endl;
 		if (file.eof())

@@ -21,7 +21,7 @@ private:
 public:
 	Hash();
 	~Hash();
-	void AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres);
+	void AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres,int index);
 	void insertDataset(string txt_);
 	void deleteDataset();
 	void searchingDataset();

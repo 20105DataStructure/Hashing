@@ -6,7 +6,7 @@ using namespace std;
 #define HASH_H
 class Hash {
 private:
-	static const int hash[9999];
+	static const int hash[199999];
 public:
 	Hash();
 	~Hash();

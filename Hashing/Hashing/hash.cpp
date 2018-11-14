@@ -18,6 +18,7 @@ void Hash::insertDataset(string txt_) {
 	string runtimeMinutes;
 	string Genres;
 	string *genres = new string[3];
+	int key, key_Runtime, key_title, key_type, key_tconst;
 
 	ifstream file(txt_);
 	while (file.good()) {
@@ -48,10 +49,31 @@ void Hash::insertDataset(string txt_) {
 		}
 		//start coding here
 		//code for the key agolthim
+		key = 0;
+		key_Runtime = 0;
+		key_title = 0;
+		key_type = 0;
+		//runtime (first key)
 		if (runtimeMinutes[1] == 'N')
-			cout << "\\N";
-		else
-			cout << runtimeMinutes;
+			key += 0;
+		else {
+			key_Runtime = std::stoi(runtimeMinutes);
+			key += (key_Runtime % 10);
+		}
+		//year(second key)
+		key += (startYear % 10 * 10);
+		//title(thrid key)
+		key_title = int(peimaryTitle[0]);
+		key += (key_title % 10 * 100);
+		//type (4th key)
+		key_type = int(titleType[0]);
+		key += (key_type % 10 * 1000);
+		//tconst(5th key)
+		key_tconst = tconst[8] - '0';
+		key += (key_tconst % 10 * 10000);
+		//genres(6th key)
+
+	
 		//end here
 		cout << endl;
 		if (file.eof())

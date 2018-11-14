@@ -1,10 +1,15 @@
+#include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 #ifndef HASH_H
 #define HASH_H
-class hash {
+class Hash {
 public:
-	static const int Hash[9999];
+	static const int hash[9999];
 public:
+	Hash();
+	~Hash();
 	void insertDataset(string txt_);
 	void deleteDataset();
 	void searchingDataset();

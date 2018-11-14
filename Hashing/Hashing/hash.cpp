@@ -4,12 +4,18 @@
 #include "hash.h"
 using namespace std;
 
-void hash::insertDataset(string txt_) {
+Hash::Hash() {
 
 }
-void hash::deleteDataset(); {
+Hash::~Hash() {
 
 }
-void hashsearchingDataset(); {
+void Hash::insertDataset(string txt_) {
+
+}
+void Hash::deleteDataset() {
+
+}
+void Hash::searchingDataset() {
 
 }

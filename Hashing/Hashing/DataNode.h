@@ -1,4 +1,4 @@
-/*#include <string>
+#include <string>
 using namespace std;
 class DatasetNode {
 public:
@@ -6,12 +6,12 @@ public:
 	string titleType;
 	string peimaryTitle;
 	int startYear;
-	string runtimeMinutes;
+	int runtimeMinutes;
 	string* genres;
 	DatasetNode* next;
 
 public:
-	DatasetNode(string code, string Type, string Title, int YYYY, string mins, string* genres) {
+	DatasetNode(string code, string Type, string Title, int YYYY, int mins, string* genres) {
 		this->tconst = code;
 		this->titleType = Type;
 		this->peimaryTitle = Title;
@@ -21,4 +21,3 @@ public:
 		this->next = NULL;
 	}
 };
-//this file is only for reference*/

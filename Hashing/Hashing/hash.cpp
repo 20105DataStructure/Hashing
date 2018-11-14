@@ -49,13 +49,11 @@ void Hash::insertDataset(string txt_) {
 		file >> startYear >> runtimeMinutes;
 		getline(file, Genres);
 
-		int pos1 = 1;
-		int pos2;
+		int pos1 = 1, pos2, i = 0;
 		size_t n = count(Genres.begin(), Genres.end(), ',');
-		int i = 0;
 		if (n > 0) {
 			pos1 = Genres.find("\"") + 1;
-			for (; i < n; i++) {
+			for (; i < (signed)n; i++) {
 				pos2 = Genres.find(",", pos1);
 				genres[i] = Genres.substr(pos1, pos2 - pos1);
 				pos1 = pos2 + 1;
@@ -63,11 +61,7 @@ void Hash::insertDataset(string txt_) {
 		}
 		pos2 = Genres.find("\"", pos1);
 		genres[i] = Genres.substr(pos1, pos2 - pos1);
-
-		for (int i = 0; i < 3; i++) {
-			cout << ' ' << genres[i];
-			genres[i] = "";
-		}
+		
 		//start coding here
 		//code for the key agolthim
 		key = 0;

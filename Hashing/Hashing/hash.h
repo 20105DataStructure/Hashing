@@ -5,7 +5,7 @@ using namespace std;
 #ifndef HASH_H
 #define HASH_H
 class Hash {
-public:
+private:
 	static const int hash[9999];
 public:
 	Hash();

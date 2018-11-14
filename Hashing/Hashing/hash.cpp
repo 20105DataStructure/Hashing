@@ -27,11 +27,6 @@ void Hash::insertDataset(string txt_) {
 		file >> startYear >> runtimeMinutes;
 		getline(file, Genres);
 
-		if (runtimeMinutes[1] == 'N')
-			cout << "\\N";
-		else
-			cout << runtimeMinutes;
-
 		int pos1 = 1;
 		int pos2;
 		size_t n = count(Genres.begin(), Genres.end(), ',');
@@ -53,7 +48,10 @@ void Hash::insertDataset(string txt_) {
 		}
 		//start coding here
 		//code for the key agolthim
-
+		if (runtimeMinutes[1] == 'N')
+			cout << "\\N";
+		else
+			cout << runtimeMinutes;
 		//end here
 		cout << endl;
 		if (file.eof())

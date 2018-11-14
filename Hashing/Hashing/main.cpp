@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include "hash.h"
+#include "DataNode.h"
 
 using namespace std;
 

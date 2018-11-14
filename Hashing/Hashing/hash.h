@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "DataNode.h"
 using namespace std;
 #ifndef HASH_H
 #define HASH_H
@@ -15,7 +16,7 @@ private:
 		int startYear;
 		int runtimeMinutes;
 		string* genres;
-		dataset* next;
+		DatasetNode* next;
 	};
 	dataset* hash[tablesize];
 public:

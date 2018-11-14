@@ -2,19 +2,12 @@
 #include <string>
 #include <fstream>
 #include "hash.h"
+#include "DataNode.h"
 using namespace std;
 
 Hash::Hash() {
 	for (int i = 0; i < tablesize; i++) {
-		hash[i] = new dataset;
-		hash[i]->tconst="empty";
-		hash[i]->titleType="empty";
-		hash[i]->peimaryTitle="empty";
-		hash[i]->startYear=NULL;
-		hash[i]->runtimeMinutes=NULL;
-		hash[i]->genres=NULL;
 		hash[i]->next = NULL;
-
 	}
 }
 Hash::~Hash() {
@@ -24,21 +17,17 @@ Hash::~Hash() {
 void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres,int index) {
 	int index_ = index;
 
-	if (hash[index_]->tconst == "empty")
+	if (hash[index_]->next == NULL)
 	{
-		hash[index_]->tconst = tconst;
-		hash[index_]->titleType = Type;
-		hash[index_]->peimaryTitle = title;
-		hash[index_]->startYear = YYYY;
-		hash[index_]->runtimeMinutes = runtime;
-		hash[index_]->genres = genres;
+		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
+		hash[index_]->next = newNode;
 	}
-	else if (hash[index_]->next != NULL) {
-
+	else{
+		//editing
+		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
+		hash[index_]->next = newNode;
 	}
-	else {
-
-	}
+	
 }
 
 void Hash::insertDataset(string txt_) {

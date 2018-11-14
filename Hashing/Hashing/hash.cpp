@@ -25,6 +25,7 @@ void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int ru
 	else{
 		//editing
 		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
+		newNode->next = hash[index_]->next;
 		hash[index_]->next = newNode;
 	}
 	

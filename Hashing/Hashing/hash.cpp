@@ -227,7 +227,7 @@ void Hash::searchingDataset() {
 					}
 				}
 				if (runtime == T) {
-					/editing
+					//editing
 					if (currnode->runtimeMinutes != druntime) {
 						comparing += 1;
 					}

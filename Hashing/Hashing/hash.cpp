@@ -13,7 +13,8 @@ Hash::Hash() {
 Hash::~Hash() {
 
 }
-
+//adding data intothe Dataset hash table 
+//it may be haveing the coillison in the process ,so there would be consider by the linklist in the hash table 
 void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres,int index) {
 	int index_ = index;
 
@@ -23,7 +24,6 @@ void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int ru
 		hash[index_]->next = newNode;
 	}
 	else{
-		//editing
 		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
 		newNode->next = hash[index_]->next;
 		hash[index_]->next = newNode;

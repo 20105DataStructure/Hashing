@@ -15,7 +15,7 @@ Hash::~Hash() {
 }
 //adding data intothe Dataset hash table 
 //it may be haveing the coillison in the process ,so there would be consider by the linklist in the hash table 
-void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, int runtime, string*genres,int index) {
+void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, string runtime, string*genres,int index) {
 	int index_ = index;
 
 	if (hash[index_]->next == NULL)
@@ -91,7 +91,7 @@ void Hash::insertDataset(string txt_) {
 			key += 100000;
 		}
 		//past the  dataset to another funtion to insert dataset into the hash table
-		AddDataSet(tconst, titleType, peimaryTitle, startYear, key_Runtime, genres,key);
+		AddDataSet(tconst, titleType, peimaryTitle, startYear, runtimeMinutes, genres,key);
 		//end here
 		cout << endl;
 		if (file.eof())
@@ -203,25 +203,46 @@ void Hash::searchingDataset() {
 		if (i%check1 / check2 == key) {
 			if (hash[i]->next != NULL) {
 				DatasetNode* currnode = hash[i]->next;
+				int comparing = 0;
 				//check funtion part 1
 				//check for the first node in each hash table which having value 
 				if (code == T) {
-
+					if (currnode->tconst != dcode) {
+						comparing += 1;
+					}
 				}
 				if (type == T) {
-
+					if (currnode->titleType != dtype) {
+						comparing += 1;
+					}
 				}
 				if (title == T) {
-
+					if (currnode->peimaryTitle != dtitle) {
+						comparing += 1;
+					}
 				}
 				if (year == T) {
-
+					if (currnode->startYear != dyear) {
+						comparing += 1;
+					}
 				}
 				if (runtime == T) {
-
+					/editing
+					if (currnode->runtimeMinutes != druntime) {
+						comparing += 1;
+					}
+					/*if (runtimeMinutes[1] == 'N')
+						key += 0;
+					else {
+						key_Runtime = std::stoi(runtimeMinutes);
+						key += (key_Runtime % 10);
+					}*/
 				}
 				if (genres == T) {
-
+					//editing
+					if (currnode->genres != dgenres) {
+						comparing += 1;
+					}
 				}
 				if (currnode->next != NULL) {
 					DatasetNode* prevnode = currnode;
@@ -247,6 +268,8 @@ void Hash::searchingDataset() {
 						if (genres == T) {
 
 						}
+						prevnode = currnode;
+						currnode = currnode->next;
 					} while (currnode->next != NULL);
 				}
 			}

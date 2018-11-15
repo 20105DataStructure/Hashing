@@ -6,12 +6,12 @@ public:
 	string titleType;
 	string peimaryTitle;
 	int startYear;
-	int runtimeMinutes;
+	string runtimeMinutes;
 	string* genres;
 	DatasetNode* next;
 
 public:
-	DatasetNode(string code, string Type, string Title, int YYYY, int mins, string* genres) {
+	DatasetNode(string code, string Type, string Title, int YYYY, string mins, string* genres) {
 		this->tconst = code;
 		this->titleType = Type;
 		this->peimaryTitle = Title;

@@ -232,7 +232,6 @@ void Hash::searchingDataset() {
 					}
 				}
 				if (genres == T) {
-					//editing
 					int checkgenres = 0;
 					for (i=0;i<3;i++){
 						if (currnode->genres[i] == dgenres) {
@@ -241,34 +240,53 @@ void Hash::searchingDataset() {
 						if (checkgenres = 0) {
 							comparing += 1;
 						}
-
-						/*(currnode->genres != dgenres) comparing += 1;*/
 					}
 				}
+				//output funtion 
 				if (currnode->next != NULL) {
 					DatasetNode* prevnode = currnode;
 					currnode = currnode->next;
 					do {
 						//check funtion part two
 						//by the way of checking linklist to check all the dataset in the hash table
+						comparing = 0;
 						if (code == T) {
-
+							if (currnode->tconst != dcode) {
+								comparing += 1;
+							}
 						}
 						if (type == T) {
-
+							if (currnode->titleType != dtype) {
+								comparing += 1;
+							}
 						}
 						if (title == T) {
-
+							if (currnode->peimaryTitle != dtitle) {
+								comparing += 1;
+							}
 						}
 						if (year == T) {
-
+							if (currnode->startYear != dyear) {
+								comparing += 1;
+							}
 						}
 						if (runtime == T) {
-
+							if (currnode->runtimeMinutes != druntime) {
+								comparing += 1;
+							}
 						}
 						if (genres == T) {
-
+							int checkgenres = 0;
+							for (i = 0; i < 3; i++) {
+								if (currnode->genres[i] == dgenres) {
+									checkgenres += 1;
+								}
+								if (checkgenres = 0) {
+									comparing += 1;
+								}
+							}
 						}
+						//output funtion
 						prevnode = currnode;
 						currnode = currnode->next;
 					} while (currnode->next != NULL);

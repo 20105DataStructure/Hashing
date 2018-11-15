@@ -201,7 +201,18 @@ void Hash::searchingDataset() {
 	for (int i=0; i < 199999;i++)
 	{
 		if (i%check1/check2==key) {
-
+			if (hash[i]->next != NULL) {
+				DatasetNode* currnode = hash[i]->next;
+				//check funtion part 1
+				//check for the first node in each hash table which having value 
+				if (currnode->next != NULL) {
+					DatasetNode* prevnode = currnode;
+					currnode = currnode->next;
+					do {
+						//check funtion part two
+						//by the way of checking linklist to check all the dataset in the hash table
+					} while (currnode->next != NULL);
+				}
 		}
 	}
 }

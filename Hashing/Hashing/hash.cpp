@@ -112,7 +112,7 @@ void Hash::searchingDataset() {
 	string dcode, dtype, dtitle, dgenres, druntime;
 	int dyear = 0;
 	int pcode = 0, ptype = 0, ptitle = 0, pgenres = 0, pruntime = 0, pyear = 0;
-	int i = 0;
+	int key = 0;
 
 
 	cout << "Please enter the source(s) you can provide" << endl;
@@ -131,7 +131,7 @@ void Hash::searchingDataset() {
 		cout << "code: " << endl;
 		cin >> dcode;
 		pcode += dcode[8];
-		i += pcode;
+		key += pcode;
 	}
 	if (t == 't')
 	{
@@ -139,7 +139,7 @@ void Hash::searchingDataset() {
 		cout << "type: " << endl;
 		cin >> dtype;
 		ptype += int(dtype[0]) % 10;
-		i += ptype * 10;
+		key += ptype * 10;
 	}
 	if (T == 't')
 	{
@@ -147,7 +147,7 @@ void Hash::searchingDataset() {
 		cout << "title: " << endl;
 		cin >> dtitle;
 		ptitle += int(dtitle[0]) % 10;
-		i += title * 100;
+		key += title * 100;
 	}
 	if (y == 't')
 	{
@@ -155,7 +155,7 @@ void Hash::searchingDataset() {
 		cout << "year: " << endl;
 		cin >> dyear;
 		pyear += dyear % 10;
-		i += pyear * 1000;
+		key += pyear * 1000;
 	}
 	if (r == 't')
 	{
@@ -169,7 +169,7 @@ void Hash::searchingDataset() {
 			pruntime = std::stoi(druntime);
 			pruntime += (pruntime % 10);
 		}
-		i += pruntime * 10000;
+		key += pruntime * 10000;
 	}
 	if (g == 't')
 	{
@@ -180,10 +180,28 @@ void Hash::searchingDataset() {
 			pgenres += 0;
 		else
 			pgenres += 1;
-		i += pgenres * 100000;
+		key += pgenres * 100000;
 	}
-	for (; i < 199999;)
-	{
+	int check1 = 0,check2 = 0;
+	//setting up the loop funtion
+	if (code == T) check2 = 1;
+	else if (type == T)check2 = 10;
+	else if (title == T)check2 = 100;
+	else if (year == T)check2 = 1000;
+	else if (runtime == T)check2 = 10000;
+	else if (genres == T)check2 = 100000;
 
+	if (genres == T)check1 =  1000000;
+	else if (runtime == T)check1 = 100000;
+	else if (year == T)check1 = 10000;
+	else if (title == T)check1 = 1000;
+	else if (type == T)check1 = 100;
+	else if (code == T)check1 = 10;
+	//end of setting
+	for (int i=0; i < 199999;i++)
+	{
+		if (i%check1/check2==key) {
+
+		}
 	}
 }

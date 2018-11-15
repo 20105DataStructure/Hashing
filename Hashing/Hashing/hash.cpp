@@ -182,7 +182,7 @@ void Hash::searchingDataset() {
 			pgenres += 1;
 		key += pgenres * 100000;
 	}
-	int check1 = 0,check2 = 0;
+	int check1 = 0, check2 = 0;
 	//setting up the loop funtion
 	if (code == T) check2 = 1;
 	else if (type == T)check2 = 10;
@@ -191,16 +191,16 @@ void Hash::searchingDataset() {
 	else if (runtime == T)check2 = 10000;
 	else if (genres == T)check2 = 100000;
 
-	if (genres == T)check1 =  1000000;
+	if (genres == T)check1 = 1000000;
 	else if (runtime == T)check1 = 100000;
 	else if (year == T)check1 = 10000;
 	else if (title == T)check1 = 1000;
 	else if (type == T)check1 = 100;
 	else if (code == T)check1 = 10;
 	//end of setting
-	for (int i=0; i < 199999;i++)
+	for (int i = 0; i < 199999; i++)
 	{
-		if (i%check1/check2==key) {
+		if (i%check1 / check2 == key) {
 			if (hash[i]->next != NULL) {
 				DatasetNode* currnode = hash[i]->next;
 				//check funtion part 1
@@ -213,6 +213,7 @@ void Hash::searchingDataset() {
 						//by the way of checking linklist to check all the dataset in the hash table
 					} while (currnode->next != NULL);
 				}
+			}
 		}
 	}
 }

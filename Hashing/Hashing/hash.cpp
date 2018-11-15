@@ -227,21 +227,22 @@ void Hash::searchingDataset() {
 					}
 				}
 				if (runtime == T) {
-					//editing
 					if (currnode->runtimeMinutes != druntime) {
 						comparing += 1;
 					}
-					/*if (runtimeMinutes[1] == 'N')
-						key += 0;
-					else {
-						key_Runtime = std::stoi(runtimeMinutes);
-						key += (key_Runtime % 10);
-					}*/
 				}
 				if (genres == T) {
 					//editing
-					if (currnode->genres != dgenres) {
-						comparing += 1;
+					int checkgenres = 0;
+					for (i=0;i<3;i++){
+						if (currnode->genres[i] == dgenres) {
+							checkgenres += 1;
+						}
+						if (checkgenres = 0) {
+							comparing += 1;
+						}
+
+						/*(currnode->genres != dgenres) comparing += 1;*/
 					}
 				}
 				if (currnode->next != NULL) {

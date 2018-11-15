@@ -8,7 +8,7 @@ using namespace std;
 class Hash {
 private:
 	static const int tablesize=199999;
-
+	DatasetNode* head;
 	struct dataset {
 		DatasetNode* next;
 	};
@@ -20,5 +20,6 @@ public:
 	void insertDataset(string txt_);
 	void deleteDataset();
 	void searchingDataset();
+	void statistical();
 };
 #endif

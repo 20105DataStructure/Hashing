@@ -1,7 +1,13 @@
 #include <string>
 using namespace std;
+
+#ifndef DataNode_H
+#define DataNode_H
+
+
 class DatasetNode {
 public:
+
 	string tconst;
 	string titleType;
 	string peimaryTitle;
@@ -21,3 +27,4 @@ public:
 		this->next = NULL;
 	}
 };
+#endif

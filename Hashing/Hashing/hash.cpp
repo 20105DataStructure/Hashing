@@ -7,7 +7,8 @@ using namespace std;
 
 Hash::Hash() {
 	for (int i = 0; i < tablesize; i++) {
-		hash[i]->next = NULL;
+		
+		hash[i];
 	}
 }
 Hash::~Hash() {
@@ -18,15 +19,19 @@ Hash::~Hash() {
 void Hash::AddDataSet(string tconst, string Type, string title, int YYYY, string runtime, string*genres,int index) {
 	int index_ = index;
 
-	if (hash[index_]->next == NULL)
+	if (hash[index_] == NULL)
 	{
 		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
 		hash[index_]->next = newNode;
+		newNode-> next = NULL;
 	}
 	else{
+		DatasetNode * currnode = head;
+		DatasetNode * prenode = NULL;
 		DatasetNode *newNode = new DatasetNode(tconst, Type, title, YYYY, runtime, genres);
-		newNode->next = hash[index_]->next;
-		hash[index_]->next = newNode;
+		for (; currnode->next; prenode = currnode, currnode = currnode->next);
+		currnode->next = newNode;
+		newNode->next = NULL;
 	}
 	
 }
@@ -93,12 +98,16 @@ void Hash::insertDataset(string txt_) {
 		//past the  dataset to another funtion to insert dataset into the hash table
 		AddDataSet(tconst, titleType, peimaryTitle, startYear, runtimeMinutes, genres,key);
 		//end here
-		cout << endl;
+		cout << "sucess"<<endl;
 		if (file.eof())
 			file.close();
 	}
 }
 void Hash::deleteDataset() {
+
+}
+
+void Hash::statistical() {
 
 }
 void Hash::searchingDataset() {
@@ -116,15 +125,15 @@ void Hash::searchingDataset() {
 
 
 	cout << "Please enter the source(s) you can provide" << endl;
-	cout << "code	type	title	year	runtime		genres" << endl;
-	cout << "type t represent you can give the soure and f represent can't respectively" << endl;
+	cout << "code   type   title   year   runtime   genres:" << endl;
+	cout << "Type t represent you can give the soure and f represent can't respectively" << endl;
 	cin >> c;
 	cin >> t;
 	cin >> T;
 	cin >> y;
 	cin >> r;
 	cin >> g;
-	cout << "plese enter the data" << endl;
+	cout << "Plese enter the data: " << endl;
 	if (c == 't')
 	{
 		code = true;
@@ -184,19 +193,19 @@ void Hash::searchingDataset() {
 	}
 	int check1 = 0, check2 = 0;
 	//setting up the loop funtion
-	if (code == T) check2 = 1;
-	else if (type == T)check2 = 10;
-	else if (title == T)check2 = 100;
-	else if (year == T)check2 = 1000;
-	else if (runtime == T)check2 = 10000;
-	else if (genres == T)check2 = 100000;
+	if (code == true) check2 = 1;
+	else if (type == true)check2 = 10;
+	else if (title == true)check2 = 100;
+	else if (year == true)check2 = 1000;
+	else if (runtime == true)check2 = 10000;
+	else if (genres == true)check2 = 100000;
 
-	if (genres == T)check1 = 1000000;
-	else if (runtime == T)check1 = 100000;
-	else if (year == T)check1 = 10000;
-	else if (title == T)check1 = 1000;
-	else if (type == T)check1 = 100;
-	else if (code == T)check1 = 10;
+	if (genres == true)check1 = 1000000;
+	else if (runtime == true)check1 = 100000;
+	else if (year == true)check1 = 10000;
+	else if (title == true)check1 = 1000;
+	else if (type == true)check1 = 100;
+	else if (code == true)check1 = 10;
 	//end of setting
 	for (int i = 0; i < 199999; i++)
 	{
@@ -206,32 +215,32 @@ void Hash::searchingDataset() {
 				int comparing = 0;
 				//check funtion part 1
 				//check for the first node in each hash table which having value 
-				if (code == T) {
+				if (code == true) {
 					if (currnode->tconst != dcode) {
 						comparing += 1;
 					}
 				}
-				if (type == T) {
+				if (type == true) {
 					if (currnode->titleType != dtype) {
 						comparing += 1;
 					}
 				}
-				if (title == T) {
+				if (title == true) {
 					if (currnode->peimaryTitle != dtitle) {
 						comparing += 1;
 					}
 				}
-				if (year == T) {
+				if (year == true) {
 					if (currnode->startYear != dyear) {
 						comparing += 1;
 					}
 				}
-				if (runtime == T) {
+				if (runtime == true) {
 					if (currnode->runtimeMinutes != druntime) {
 						comparing += 1;
 					}
 				}
-				if (genres == T) {
+				if (genres == true) {
 					int checkgenres = 0;
 					for (i=0;i<3;i++){
 						if (currnode->genres[i] == dgenres) {
@@ -250,32 +259,32 @@ void Hash::searchingDataset() {
 						//check funtion part two
 						//by the way of checking linklist to check all the dataset in the hash table
 						comparing = 0;
-						if (code == T) {
+						if (code == true) {
 							if (currnode->tconst != dcode) {
 								comparing += 1;
 							}
 						}
-						if (type == T) {
+						if (type == true) {
 							if (currnode->titleType != dtype) {
 								comparing += 1;
 							}
 						}
-						if (title == T) {
+						if (title == true) {
 							if (currnode->peimaryTitle != dtitle) {
 								comparing += 1;
 							}
 						}
-						if (year == T) {
+						if (year == true) {
 							if (currnode->startYear != dyear) {
 								comparing += 1;
 							}
 						}
-						if (runtime == T) {
+						if (runtime == true) {
 							if (currnode->runtimeMinutes != druntime) {
 								comparing += 1;
 							}
 						}
-						if (genres == T) {
+						if (genres == true) {
 							int checkgenres = 0;
 							for (i = 0; i < 3; i++) {
 								if (currnode->genres[i] == dgenres) {

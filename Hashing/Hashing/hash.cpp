@@ -205,12 +205,48 @@ void Hash::searchingDataset() {
 				DatasetNode* currnode = hash[i]->next;
 				//check funtion part 1
 				//check for the first node in each hash table which having value 
+				if (code == T) {
+
+				}
+				if (type == T) {
+
+				}
+				if (title == T) {
+
+				}
+				if (year == T) {
+
+				}
+				if (runtime == T) {
+
+				}
+				if (genres == T) {
+
+				}
 				if (currnode->next != NULL) {
 					DatasetNode* prevnode = currnode;
 					currnode = currnode->next;
 					do {
 						//check funtion part two
 						//by the way of checking linklist to check all the dataset in the hash table
+						if (code == T) {
+
+						}
+						if (type == T) {
+
+						}
+						if (title == T) {
+
+						}
+						if (year == T) {
+
+						}
+						if (runtime == T) {
+
+						}
+						if (genres == T) {
+
+						}
 					} while (currnode->next != NULL);
 				}
 			}

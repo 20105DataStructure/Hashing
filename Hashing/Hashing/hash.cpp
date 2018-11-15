@@ -191,114 +191,107 @@ void Hash::searchingDataset() {
 			pgenres += 1;
 		key += pgenres * 100000;
 	}
-	int check1 = 0, check2 = 0;
-	//setting up the loop funtion
-	if (code == true) check2 = 1;
-	else if (type == true)check2 = 10;
-	else if (title == true)check2 = 100;
-	else if (year == true)check2 = 1000;
-	else if (runtime == true)check2 = 10000;
-	else if (genres == true)check2 = 100000;
 
-	if (genres == true)check1 = 1000000;
-	else if (runtime == true)check1 = 100000;
-	else if (year == true)check1 = 10000;
-	else if (title == true)check1 = 1000;
-	else if (type == true)check1 = 100;
-	else if (code == true)check1 = 10;
-	//end of setting
-	for (int i = 0; i < 199999; i++)
+	for (int i = 0; i < 39999; i++)
 	{
-		if (i%check1 / check2 == key) {
-			if (hash[i]->next != NULL) {
-				DatasetNode* currnode = hash[i]->next;
-				int comparing = 0;
-				//check funtion part 1
-				//check for the first node in each hash table which having value 
-				if (code == true) {
-					if (currnode->tconst != dcode) {
-						comparing += 1;
-					}
-				}
-				if (type == true) {
-					if (currnode->titleType != dtype) {
-						comparing += 1;
-					}
-				}
-				if (title == true) {
-					if (currnode->peimaryTitle != dtitle) {
-						comparing += 1;
-					}
-				}
-				if (year == true) {
-					if (currnode->startYear != dyear) {
-						comparing += 1;
-					}
-				}
-				if (runtime == true) {
-					if (currnode->runtimeMinutes != druntime) {
-						comparing += 1;
-					}
-				}
-				if (genres == true) {
-					int checkgenres = 0;
-					for (i=0;i<3;i++){
-						if (currnode->genres[i] == dgenres) {
-							checkgenres += 1;
-						}
-						if (checkgenres = 0) {
-							comparing += 1;
-						}
-					}
-				}
-				//output funtion 
-				if (currnode->next != NULL) {
-					DatasetNode* prevnode = currnode;
-					currnode = currnode->next;
-					do {
-						//check funtion part two
-						//by the way of checking linklist to check all the dataset in the hash table
-						comparing = 0;
-						if (code == true) {
-							if (currnode->tconst != dcode) {
-								comparing += 1;
-							}
-						}
-						if (type == true) {
-							if (currnode->titleType != dtype) {
-								comparing += 1;
-							}
-						}
-						if (title == true) {
-							if (currnode->peimaryTitle != dtitle) {
-								comparing += 1;
-							}
-						}
-						if (year == true) {
-							if (currnode->startYear != dyear) {
-								comparing += 1;
-							}
-						}
-						if (runtime == true) {
-							if (currnode->runtimeMinutes != druntime) {
-								comparing += 1;
-							}
-						}
-						if (genres == true) {
-							int checkgenres = 0;
-							for (i = 0; i < 3; i++) {
-								if (currnode->genres[i] == dgenres) {
-									checkgenres += 1;
+		if (code==false||i%10==key%10){
+			if (type == false || i % 100 / 10 == key % 100 / 10) {
+				if (title == false || i % 1000 / 100 == key % 1000 / 100) {
+					if (year == false || i % 10000 / 1000 == key % 10000 / 1000) {
+						if (runtime == false || i % 100000 / 10000 == key % 100000 / 10000) {
+							if (hash[i]->next != NULL) {
+								DatasetNode* currnode = hash[i]->next;
+								int comparing = 0;
+								//check funtion part 1
+								//check for the first node in each hash table which having value 
+								if (code == true) {
+									if (currnode->tconst != dcode) {
+										comparing += 1;
+									}
 								}
-								if (checkgenres = 0) {
-									comparing += 1;
+								if (type == true) {
+									if (currnode->titleType != dtype) {
+										comparing += 1;
+									}
+								}
+								if (title == true) {
+									if (currnode->peimaryTitle != dtitle) {
+										comparing += 1;
+									}
+								}
+								if (year == true) {
+									if (currnode->startYear != dyear) {
+										comparing += 1;
+									}
+								}
+								if (runtime == true) {
+									if (currnode->runtimeMinutes != druntime) {
+										comparing += 1;
+									}
+								}
+								if (genres == true) {
+									int checkgenres = 0;
+									for (i = 0; i < 3; i++) {
+										if (currnode->genres[i] == dgenres) {
+											checkgenres += 1;
+										}
+										if (checkgenres = 0) {
+											comparing += 1;
+										}
+									}
+								}
+								//output funtion 
+								if (currnode->next != NULL) {
+									DatasetNode* prevnode = currnode;
+									currnode = currnode->next;
+									do {
+										//check funtion part two
+										//by the way of checking linklist to check all the dataset in the hash table
+										comparing = 0;
+										if (code == true) {
+											if (currnode->tconst != dcode) {
+												comparing += 1;
+											}
+										}
+										if (type == true) {
+											if (currnode->titleType != dtype) {
+												comparing += 1;
+											}
+										}
+										if (title == true) {
+											if (currnode->peimaryTitle != dtitle) {
+												comparing += 1;
+											}
+										}
+										if (year == true) {
+											if (currnode->startYear != dyear) {
+												comparing += 1;
+											}
+										}
+										if (runtime == true) {
+											if (currnode->runtimeMinutes != druntime) {
+												comparing += 1;
+											}
+										}
+										if (genres == true) {
+											int checkgenres = 0;
+											for (i = 0; i < 3; i++) {
+												if (currnode->genres[i] == dgenres) {
+													checkgenres += 1;
+												}
+												if (checkgenres = 0) {
+													comparing += 1;
+												}
+											}
+										}
+										//output funtion
+										prevnode = currnode;
+										currnode = currnode->next;
+									} while (currnode->next != NULL);
 								}
 							}
 						}
-						//output funtion
-						prevnode = currnode;
-						currnode = currnode->next;
-					} while (currnode->next != NULL);
+					}
 				}
 			}
 		}
